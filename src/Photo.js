@@ -15,14 +15,36 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => 
     onClick(event, { photo, index });
   };
 
-  return (
-    <img
-      key={key}
-      style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
-      {...photo}
-      onClick={onClick ? handleClick : null}
-    />
-  );
+
+  if(photo.mime) {
+    const type = mimeType.split('/');
+    if(type[0] === "video") {
+      return (
+        <video
+          muted
+          autoPlay
+          playsinline
+          disablePictureInPicture
+          preload="metadata"
+          key={`album-${key}`}
+          style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
+          {...photo}
+          onClick={onClick ? handleClick : null}
+        >
+          Votre navigateur ne gère pas l'élément <code>video</code>.
+        </video>
+      );
+    } else if(type[0] === "image") {
+      return (
+        <img
+          key={`album-${key}`}
+          style={onClick ? { ...imgStyle, ...imgWithClick } : imgStyle}
+          {...photo}
+          onClick={onClick ? handleClick : null}
+        />
+      );
+    }
+  }
 };
 
 export const photoPropType = PropTypes.shape({

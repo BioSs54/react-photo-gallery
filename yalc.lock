@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "react-photo-gallery": {
+      "signature": "7ed8351dc472604c5f49388a17df9305",
+      "file": true
+    }
+  }
+}
