@@ -160,9 +160,9 @@ var Photo = function Photo(_ref) {
   };
 
   if (photo.mime) {
-    var type = mimeType.split('/');
+    var type = photo.mime.split('/');
 
-    if (type[0] === "video") {
+    if (type[0] === 'video') {
       return React.createElement("video", _extends({
         muted: true,
         autoPlay: true,
@@ -174,7 +174,7 @@ var Photo = function Photo(_ref) {
       }, photo, {
         onClick: onClick ? handleClick : null
       }), "Votre navigateur ne g\xE8re pas l'\xE9l\xE9ment ", React.createElement("code", null, "video"), ".");
-    } else if (type[0] === "image") {
+    } else if (type[0] === 'image') {
       return React.createElement("img", _extends({
         key: "album-".concat(key),
         style: onClick ? _objectSpread({}, imgStyle, imgWithClick) : imgStyle

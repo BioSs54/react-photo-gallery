@@ -15,10 +15,9 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => 
     onClick(event, { photo, index });
   };
 
-
-  if(photo.mime) {
-    const type = mimeType.split('/');
-    if(type[0] === "video") {
+  if (photo.mime) {
+    const type = photo.mime.split('/');
+    if (type[0] === 'video') {
       return (
         <video
           muted
@@ -34,7 +33,7 @@ const Photo = ({ index, onClick, photo, margin, direction, top, left, key }) => 
           Votre navigateur ne gère pas l'élément <code>video</code>.
         </video>
       );
-    } else if(type[0] === "image") {
+    } else if (type[0] === 'image') {
       return (
         <img
           key={`album-${key}`}

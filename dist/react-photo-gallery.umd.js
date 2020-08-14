@@ -166,9 +166,9 @@
     };
 
     if (photo.mime) {
-      var type = mimeType.split('/');
+      var type = photo.mime.split('/');
 
-      if (type[0] === "video") {
+      if (type[0] === 'video') {
         return React__default.createElement("video", _extends({
           muted: true,
           autoPlay: true,
@@ -180,7 +180,7 @@
         }, photo, {
           onClick: onClick ? handleClick : null
         }), "Votre navigateur ne g\xE8re pas l'\xE9l\xE9ment ", React__default.createElement("code", null, "video"), ".");
-      } else if (type[0] === "image") {
+      } else if (type[0] === 'image') {
         return React__default.createElement("img", _extends({
           key: "album-".concat(key),
           style: onClick ? _objectSpread({}, imgStyle, imgWithClick) : imgStyle
